@@ -11,6 +11,7 @@ export type ThemedTextProps = TextProps & {
 
 export function ThemedText({
   style,
+  numberOfLines,
   lightColor,
   darkColor,
   type = "default",
@@ -49,7 +50,6 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 32,
     fontWeight: "bold",
-    lineHeight: 32,
   },
   subtitle: {
     fontSize: 20,

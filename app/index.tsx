@@ -1,9 +1,16 @@
+import ThemeButton from "@/components/ThemedButton";
 import { ThemedText } from "@/components/ThemedText";
-import { Image, StyleSheet, View } from "react-native";
+import { ThemedView } from "@/components/ThemedView";
+import { Colors } from "@/constants/Colors";
+import { router } from "expo-router";
+import { Alert, Image, StyleSheet, useColorScheme, View } from "react-native";
 
 export default function Welcome() {
+  const theme = useColorScheme() || 'light'
+
+
   return (
-    <View style={styles.container}>
+    <ThemedView style={[styles.container]}>
       <View style={styles.topContainer}>
         <Image
           style={{ flex: 1 }}
@@ -23,9 +30,18 @@ export default function Welcome() {
             reviews.
           </ThemedText>
         </View>
-        <ThemedText type="link">Login to Continue</ThemedText>
+        <View>
+          <ThemeButton my={5}
+            onPress={() => router.push('/home')}
+            txt="Continue with Google" />
+          <ThemeButton my={5}
+            onPress={() => Alert.alert("Clicked on Apple")}
+            txtColor="#fff"
+            bgColor="#000"
+            txt="Continue with Apple" />
+        </View>
       </View>
-    </View>
+    </ThemedView>
   );
 }
 
