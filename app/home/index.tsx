@@ -11,7 +11,8 @@ import {
 } from "react-native";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { useCallback, useState } from "react";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
+import ThemeButton from "@/components/ThemedButton";
 
 const SCREEN_WIDTH = Dimensions.get("screen").width;
 export default function Home() {
@@ -26,7 +27,10 @@ export default function Home() {
 
   return (
     <ThemedView style={{ flex: 1, padding: 10 }}>
-      <View style={{ height: 40 }}></View>
+      <ThemeButton
+        txt="Add Restaurant"
+        onPress={() => router.push("/addRestaurant")}
+      />
       <FlatList
         ListHeaderComponent={
           <>
